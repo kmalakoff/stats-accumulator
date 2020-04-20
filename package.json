@@ -42,8 +42,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "standard": "~10.0.2",
+    "standard": "~14.3.3",
     "stats-lite": "^2.2.0",
-    "tape": "~4.7.0"
+    "tape": "~4.13.2"
   }
 }
