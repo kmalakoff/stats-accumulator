@@ -1,6 +1,6 @@
 {
   "name": "stats-accumulator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple tool for calculating incremental stats on numeric streams. Forked from https://github.com/brycebaril/stats-incremental",
   "main": "stats.js",
   "directories": {
