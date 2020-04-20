@@ -1,0 +1,49 @@
+{
+  "name": "stats-accumulator",
+  "version": "1.0.0",
+  "description": "A simple tool for calculating incremental stats on numeric streams. Forked from https://github.com/brycebaril/stats-incremental",
+  "main": "stats.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/ && standard --fix"
+  },
+  "keywords": [
+    "stats",
+    "statistics",
+    "numbers",
+    "math",
+    "sum",
+    "mean",
+    "average",
+    "variance",
+    "deviation",
+    "accumulator",
+    "incremental"
+  ],
+  "author": "Kevin Malakoff <kmalakoff@gmail.com> (https://github.com/kmalakoff)",
+  "license": "MIT",
+  "homepage": "https://github.com/kmalakoff/stats-accumulator",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kmalakoff/stats-accumulator.git"
+  },
+  "jshintConfig": {
+    "asi": true,
+    "globalstrict": true,
+    "validthis": true,
+    "eqnull": true,
+    "node": true,
+    "loopfunc": true,
+    "newcap": false,
+    "eqeqeq": false
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "standard": "~10.0.2",
+    "stats-lite": "^2.2.0",
+    "tape": "~4.7.0"
+  }
+}
