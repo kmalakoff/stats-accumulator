@@ -91,7 +91,7 @@ test('zero', function (t) {
   t.end();
 });
 
-test('sma of different size', (t) => {
+test('sma of different size', function (t) {
   t.goodEnuf = function (obs, expect, msg) {
     this.equals(obs.toPrecision(7), expect.toPrecision(7), msg);
   };
