@@ -1,6 +1,6 @@
 {
   "name": "stats-accumulator",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A simple tool for calculating incremental stats on numeric streams. Forked from https://github.com/brycebaril/stats-incremental",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node test",
+    "test": "tape test/**/*.js",
+    "compat": "nvs 14,12,10,8,6,4,0.12,0.10,0.8 tape test/**/*.js",
     "lint": "eslint .",
     "format": "prettier --write '**/*.js'"
   },
@@ -44,8 +45,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "stats-lite": "^2.2.0",
-    "tape": "~4.13.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
@@ -54,6 +53,9 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "prettier": "^2.0.5"
+    "nvs": "^0.1.5",
+    "prettier": "^2.0.5",
+    "stats-lite": "^2.2.0",
+    "tape": "~5.0.0"
   }
 }
