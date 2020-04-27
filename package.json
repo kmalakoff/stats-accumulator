@@ -53,7 +53,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "nvs": "^0.1.5",
+    "nvs": "^0.1.8",
     "prettier": "^2.0.5",
     "stats-lite": "^2.2.0",
     "tape": "~5.0.0"
