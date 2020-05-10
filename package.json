@@ -2,17 +2,6 @@
   "name": "stats-accumulator",
   "version": "1.1.2",
   "description": "A simple tool for calculating incremental stats on numeric streams. Forked from https://github.com/brycebaril/stats-incremental",
-  "main": "index.js",
-  "directories": {
-    "example": "examples",
-    "test": "test"
-  },
-  "scripts": {
-    "test": "tape test/**/*.js",
-    "compat": "nvs 14,12,10,8,6,4,0.12,0.10,0.8 tape test/**/*.js",
-    "lint": "eslint .",
-    "format": "prettier --write '**/*.js'"
-  },
   "keywords": [
     "stats",
     "statistics",
@@ -26,12 +15,42 @@
     "accumulator",
     "incremental"
   ],
-  "author": "Kevin Malakoff <kmalakoff@gmail.com> (https://github.com/kmalakoff)",
-  "license": "MIT",
   "homepage": "https://github.com/kmalakoff/stats-accumulator",
   "repository": {
     "type": "git",
     "url": "git://github.com/kmalakoff/stats-accumulator.git"
+  },
+  "license": "MIT",
+  "author": "Kevin Malakoff <kmalakoff@gmail.com> (https://github.com/kmalakoff)",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "compat": "nvs --engines tape test/**/*.js",
+    "format": "prettier --write '**/*.js'",
+    "lint": "eslint .",
+    "test": "tape test/**/*.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha-compat": "^3.5.5",
+    "nvs": "^0.3.0",
+    "prettier": "^2.0.5",
+    "stats-lite": "^2.2.0",
+    "tape": "~5.0.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
   },
   "jshintConfig": {
     "asi": true,
@@ -42,21 +61,5 @@
     "loopfunc": true,
     "newcap": false,
     "eqeqeq": false
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "mocha-compat": "^3.5.5",
-    "nvs": "^0.2.0",
-    "prettier": "^2.0.5",
-    "stats-lite": "^2.2.0",
-    "tape": "~5.0.0"
   }
 }
