@@ -29,14 +29,14 @@
   },
   "scripts": {
     "compat": "nvs --engines tape test/**/*.js",
-    "format": "prettier --write '**/*.js'",
+    "format": "eslint . --fix",
     "lint": "eslint .",
     "test": "tape test/**/*.js"
   },
   "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
