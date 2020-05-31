@@ -20,14 +20,14 @@ This module can be used either with Node `streams` via a wrapper such as `throug
 Non-streaming:
 
 ```javascript
-var Stats = require("stats-accumulator");
+var Stats = require('stats-accumulator');
 
-var dice = require("dice");
+var dice = require('dice');
 var s = Stats();
 
 var rolls = [];
 for (var i = 0; i < 100; i++) {
-  s.update(dice.sum(dice.roll("2d6")));
+  s.update(dice.sum(dice.roll('2d6')));
   console.log(s.toJSON());
 }
 
@@ -48,11 +48,11 @@ console.log(s.stddev);
 With streams:
 
 ```js
-var spigot = require("stream-spigot");
-var through2 = require("through2");
-var terminus = require("terminus");
+var spigot = require('stream-spigot');
+var through2 = require('through2');
+var terminus = require('terminus');
 
-var Stats = require("stats-accumulator");
+var Stats = require('stats-accumulator');
 var s = Stats();
 
 var statStream = through2.obj(function (chunk, encoding, callback) {
