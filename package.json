@@ -31,7 +31,7 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "test": "tape test/**/*.js",
-    "prepublish": "dtd \"npm run lint\" \"depcheck --ignores='depcheck'\""
+    "prepublishOnly": "dtd \"npm run lint\" \"depcheck --ignores='depcheck'\""
   },
   "dependencies": {},
   "devDependencies": {
