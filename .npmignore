@@ -1,7 +1,11 @@
 .vscode/
 examples/
 test/
+.depcheckrc
 .eslintignore
 .eslintrc.js
 .prettierignore
 .prettierrc
+.travis.yml
+README.md
+

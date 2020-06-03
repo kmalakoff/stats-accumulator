@@ -30,8 +30,8 @@
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint .",
-    "test": "tape test/**/*.js",
-    "prepublishOnly": "dtd \"npm run lint\" \"depcheck\""
+    "prepublishOnly": "dtd \"npm run lint\" \"depcheck\"",
+    "test": "tape test/**/*.js"
   },
   "dependencies": {},
   "devDependencies": {
