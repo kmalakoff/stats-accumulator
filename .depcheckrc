@@ -1,2 +1,2 @@
-ignores: ["depcheck"]
+ignores: ["stats-accumulator", "depcheck", "ts-dev-stack", "@types/*"]
 ignoreDirs: ["examples"]
