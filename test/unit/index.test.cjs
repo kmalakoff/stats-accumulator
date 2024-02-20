@@ -1,17 +1,17 @@
-'use strict';
-var test = require('tape');
+const test = require('tape');
 
-var Stats = require('..');
-var sl = require('stats-lite');
+const Stats = require('stats-accumulator');
+const sl = require('stats-lite');
 
-var input = [1, 23.9, -30, '33.2', 150, -150, 'cat'];
+const input = [1, 23.9, -30, '33.2', 150, -150, 'cat'];
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 test('simple', function (t) {
   t.goodEnuf = function (obs, expect, msg) {
     this.equals(obs.toPrecision(7), expect.toPrecision(7), msg);
   };
 
-  var s = Stats();
+  const s = new Stats();
   t.deepEqual(s.toJSON(), null, 'nothing yet');
   t.equals(s.n, 0);
 
@@ -81,8 +81,9 @@ test('simple', function (t) {
   t.end();
 });
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 test('zero', function (t) {
-  var s = Stats();
+  const s = new Stats();
   s.update(0);
   t.equals(s.n, 1);
   t.equals(s.min, 0);
@@ -91,12 +92,14 @@ test('zero', function (t) {
   t.end();
 });
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 test('sma of different size', function (t) {
   t.goodEnuf = function (obs, expect, msg) {
     this.equals(obs.toPrecision(7), expect.toPrecision(7), msg);
   };
 
-  var s = Stats(10);
+  const s = new Stats(10);
+  // biome-ignore lint/style/noVar: <explanation>
   for (var i = 0; i < 100; i++) {
     s.update(i);
   }
