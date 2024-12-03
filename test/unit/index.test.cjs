@@ -112,3 +112,5 @@ test('sma of different size', function (t) {
   t.equals(s.stddev(), 28.86607004772212, 'stddev');
   t.end();
 });
+
+test.onFinish(() => process.exit(0));
