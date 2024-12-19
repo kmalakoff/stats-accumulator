@@ -13,6 +13,7 @@ function _class_call_check(instance, Constructor) {
         throw new TypeError("Cannot call a class as a function");
     }
 }
+var pf = Number.parseFloat || parseFloat;
 var Stats = /*#__PURE__*/ function() {
     "use strict";
     function Stats() {
@@ -26,7 +27,7 @@ var Stats = /*#__PURE__*/ function() {
     }
     var _proto = Stats.prototype;
     _proto.update = function update(value) {
-        var num = Number.parseFloat(value);
+        var num = pf(value);
         if (Number.isNaN(num)) return;
         this.n++;
         this.min = Math.min(this.min, num);

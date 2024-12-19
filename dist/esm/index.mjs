@@ -1,6 +1,7 @@
+const pf = Number.parseFloat || parseFloat;
 let Stats = class Stats {
     update(value) {
-        const num = Number.parseFloat(value);
+        const num = pf(value);
         if (Number.isNaN(num)) return;
         this.n++;
         this.min = Math.min(this.min, num);
