@@ -13,20 +13,6 @@ function _class_call_check(instance, Constructor) {
         throw new TypeError("Cannot call a class as a function");
     }
 }
-function _defineProperties(target, props) {
-    for(var i = 0; i < props.length; i++){
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
-    }
-}
-function _create_class(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-}
 var Stats = /*#__PURE__*/ function() {
     "use strict";
     function Stats() {
@@ -38,49 +24,36 @@ var Stats = /*#__PURE__*/ function() {
         this.mean = 0;
         this.q = 0;
     }
-    _create_class(Stats, [
-        {
-            key: "update",
-            value: function update(value) {
-                var num = parseFloat(value);
-                if (Number.isNaN(num)) return;
-                this.n++;
-                this.min = Math.min(this.min, num);
-                this.max = Math.max(this.max, num);
-                this.sum += num;
-                var prevMean = this.mean;
-                this.mean = this.mean + (num - this.mean) / this.n;
-                this.q = this.q + (num - prevMean) * (num - this.mean);
-            }
-        },
-        {
-            key: "variance",
-            value: function variance() {
-                return this.q / this.n;
-            }
-        },
-        {
-            key: "stddev",
-            value: function stddev() {
-                return Math.sqrt(this.q / this.n);
-            }
-        },
-        {
-            key: "toJSON",
-            value: function toJSON() {
-                if (this.n === 0) return null;
-                return {
-                    n: this.n,
-                    min: this.min,
-                    max: this.max,
-                    sum: this.sum,
-                    mean: this.mean,
-                    variance: this.variance(),
-                    stddev: this.stddev()
-                };
-            }
-        }
-    ]);
+    var _proto = Stats.prototype;
+    _proto.update = function update(value) {
+        var num = Number.parseFloat(value);
+        if (Number.isNaN(num)) return;
+        this.n++;
+        this.min = Math.min(this.min, num);
+        this.max = Math.max(this.max, num);
+        this.sum += num;
+        var prevMean = this.mean;
+        this.mean = this.mean + (num - this.mean) / this.n;
+        this.q = this.q + (num - prevMean) * (num - this.mean);
+    };
+    _proto.variance = function variance() {
+        return this.q / this.n;
+    };
+    _proto.stddev = function stddev() {
+        return Math.sqrt(this.q / this.n);
+    };
+    _proto.toJSON = function toJSON() {
+        if (this.n === 0) return null;
+        return {
+            n: this.n,
+            min: this.min,
+            max: this.max,
+            sum: this.sum,
+            mean: this.mean,
+            variance: this.variance(),
+            stddev: this.stddev()
+        };
+    };
     return Stats;
 }();
-/* CJS INTEROP */ if (exports.__esModule && exports.default) { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) exports.default[key] = exports[key]; module.exports = exports.default; }
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { try { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) { exports.default[key] = exports[key]; } } catch (_) {}; module.exports = exports.default; }
