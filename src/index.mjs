@@ -1,3 +1,5 @@
+const pf = Number.parseFloat || parseFloat;
+
 export default class Stats {
   constructor() {
     this.n = 0;
@@ -9,7 +11,7 @@ export default class Stats {
   }
 
   update(value) {
-    const num = parseFloat(value);
+    const num = pf(value);
     if (Number.isNaN(num)) return;
     this.n++;
     this.min = Math.min(this.min, num);
