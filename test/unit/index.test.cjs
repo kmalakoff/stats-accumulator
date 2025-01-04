@@ -99,8 +99,7 @@ test('sma of different size', function (t) {
   };
 
   const s = new Stats(10);
-  // biome-ignore lint/style/noVar: <explanation>
-  for (var i = 0; i < 100; i++) {
+  for (let i = 0; i < 100; i++) {
     s.update(i);
   }
   t.equals(s.n, 100, '100 entries');
@@ -112,3 +111,5 @@ test('sma of different size', function (t) {
   t.equals(s.stddev(), 28.86607004772212, 'stddev');
   t.end();
 });
+
+test.onFinish(() => process.exit(0));

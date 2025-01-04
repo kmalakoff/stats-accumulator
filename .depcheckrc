@@ -1,2 +1,2 @@
-ignores: ["stats-accumulator", "depcheck", "ts-dev-stack", "@types/*"]
+ignores: ["stats-accumulator", "@types/*", "@biomejs/*", "ts-swc-loaders"]
 ignoreDirs: ["examples"]
