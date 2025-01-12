@@ -24,12 +24,9 @@
   "author": "Kevin Malakoff <kmalakoff@gmail.com> (https://github.com/kmalakoff)",
   "type": "module",
   "exports": {
-    ".": {
-      "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.cjs",
-      "types": "./dist/types/index.d.ts"
-    },
-    "./*": "./*"
+    "import": "./dist/esm/index.mjs",
+    "require": "./dist/cjs/index.cjs",
+    "types": "./dist/types/index.d.ts"
   },
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
@@ -39,8 +36,6 @@
   ],
   "scripts": {
     "build": "tsds build",
-    "deploy": "tsds deploy",
-    "docs": "tsds docs",
     "format": "biome check --write --unsafe src/ test/",
     "test": "tsds link && ts-swc tape test/**/*.test.cjs && tsds unlink",
     "test:engines": "nvu engines npm test",
@@ -52,7 +47,7 @@
     "@types/node": "^22.10.5",
     "stats-lite": "^2.2.0",
     "tape": "~5.9.0",
-    "ts-swc-loaders": "^1.10.3"
+    "ts-swc-loaders": "^1.12.1"
   },
   "engines": {
     "node": ">=0.8"
