@@ -1,2 +1,2 @@
-ignores: ["stats-accumulator", "@types/*", "@biomejs/*", "ts-swc-loaders"]
+ignores: ["stats-accumulator", "ts-swc-loaders"]
 ignoreDirs: ["examples"]
