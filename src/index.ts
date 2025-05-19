@@ -1,6 +1,13 @@
 const pf = Number.parseFloat || parseFloat;
 
 export default class Stats {
+  n: number;
+  min: number;
+  max: number;
+  sum: number;
+  mean: number;
+  q: number;
+
   constructor() {
     this.n = 0;
     this.min = Number.MAX_VALUE;
