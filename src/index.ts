@@ -1,4 +1,5 @@
 const pf = Number.parseFloat || parseFloat;
+const isString = (x: unknown): boolean => Object.prototype.toString.call(x) === '[object String]';
 
 export interface StatsJSON {
   n: number;
@@ -27,8 +28,8 @@ export default class Stats {
     this.q = 0;
   }
 
-  update(value: string): void {
-    const num = pf(value);
+  update(value: string | number): void {
+    const num = isString(value) ? pf(value as string) : (value as number);
     if (Number.isNaN(num)) return;
     this.n++;
     this.min = Math.min(this.min, num);
