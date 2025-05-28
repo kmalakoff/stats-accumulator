@@ -1,5 +1,15 @@
 const pf = Number.parseFloat || parseFloat;
 
+export interface StatsJSON {
+  n: number;
+  min: number;
+  max: number;
+  sum: number;
+  mean: number;
+  variance: number;
+  stddev: number;
+}
+
 export default class Stats {
   n: number;
   min: number;
@@ -17,7 +27,7 @@ export default class Stats {
     this.q = 0;
   }
 
-  update(value) {
+  update(value: string): void {
     const num = pf(value);
     if (Number.isNaN(num)) return;
     this.n++;
@@ -29,15 +39,15 @@ export default class Stats {
     this.q = this.q + (num - prevMean) * (num - this.mean);
   }
 
-  variance() {
+  variance(): number {
     return this.q / this.n;
   }
 
-  stddev() {
+  stddev(): number {
     return Math.sqrt(this.q / this.n);
   }
 
-  toJSON() {
+  toJSON(): StatsJSON | null {
     if (this.n === 0) return null;
     return {
       n: this.n,
