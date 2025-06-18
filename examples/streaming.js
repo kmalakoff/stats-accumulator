@@ -5,7 +5,7 @@ var terminus = require('terminus');
 var Stats = require('../stats');
 var s = Stats();
 
-var statStream = through2.obj(function (chunk, encoding, callback) {
+var statStream = through2.obj(function (chunk, _encoding, callback) {
   s.update(chunk);
   if (s.n % 100000 === 0) {
     console.log(s.toJSON());
