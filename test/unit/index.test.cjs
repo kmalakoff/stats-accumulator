@@ -5,7 +5,7 @@ const sl = require('stats-lite');
 
 const input = [1, 23.9, -30, '33.2', 150, -150, 'cat'];
 
-// biome-ignore lint/complexity/useArrowFunction: <explanation>
+// biome-ignore lint/complexity/useArrowFunction: Legacy
 test('simple', function (t) {
   t.goodEnuf = function (obs, expect, msg) {
     this.equals(obs.toPrecision(7), expect.toPrecision(7), msg);
@@ -81,7 +81,7 @@ test('simple', function (t) {
   t.end();
 });
 
-// biome-ignore lint/complexity/useArrowFunction: <explanation>
+// biome-ignore lint/complexity/useArrowFunction: Legacy
 test('zero', function (t) {
   const s = new Stats();
   s.update(0);
@@ -92,7 +92,7 @@ test('zero', function (t) {
   t.end();
 });
 
-// biome-ignore lint/complexity/useArrowFunction: <explanation>
+// biome-ignore lint/complexity/useArrowFunction: Legacy
 test('sma of different size', function (t) {
   t.goodEnuf = function (obs, expect, msg) {
     this.equals(obs.toPrecision(7), expect.toPrecision(7), msg);
