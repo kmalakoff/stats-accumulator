@@ -1,2 +1,2 @@
-ignores: ["stats-accumulator", "ts-swc-loaders"]
+ignores: ["node-version-use", "ts-dev-stack", "@biomejs/biome", "stats-accumulator", "ts-swc-loaders"]
 ignoreDirs: ["examples"]
