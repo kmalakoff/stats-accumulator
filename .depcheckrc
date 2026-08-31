@@ -1,2 +1,2 @@
-ignores: ["node-version-use", "ts-dev-stack", "stats-accumulator", "ts-swc-loaders"]
+ignores: ["stats-accumulator", "node-version-use", "ts-dev-stack", "ts-swc-loaders"]
 ignoreDirs: ["examples"]
