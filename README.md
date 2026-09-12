@@ -4,6 +4,10 @@
 
 A simple tool for calculating incremental stats on numeric streams. Forked from [stats-incremental](https://github.com/brycebaril/stats-incremental) for minimal memory and maximum portability.
 
+```bash
+npm install stats-accumulator
+```
+
 E.g. given a source of numbers of unknown length that you would like to at any given time know any of:
 
 - count
@@ -22,27 +26,22 @@ Non-streaming:
 ```javascript
 var Stats = require('stats-accumulator');
 
-var dice = require('dice');
-var s = Stats();
+var s = new Stats();
 
-var rolls = [];
-for (var i = 0; i < 100; i++) {
-  s.update(dice.sum(dice.roll('2d6')));
-  console.log(s.toJSON());
-}
+for (var i = 1; i <= 6; i++) s.update(i);
 
 /* E.g.
-  { n: 97,
-  min: 2,
-  max: 12,
-  sum: 673,
-  mean: 6.938144329896907,
-  variance: 5.851843979168881,
-  stddev: 2.419058490233107 }
+  { n: 6,
+  min: 1,
+  max: 6,
+  sum: 21,
+  mean: 3.5,
+  variance: 2.9166666666666665,
+  stddev: 1.707825127659933 }
 */
 
 console.log(s.mean);
-console.log(s.stddev);
+console.log(s.stddev());
 ```
 
 With streams:
@@ -53,7 +52,7 @@ var through2 = require('through2');
 var terminus = require('terminus');
 
 var Stats = require('stats-accumulator');
-var s = Stats();
+var s = new Stats();
 
 var statStream = through2.obj(function (chunk, encoding, callback) {
   s.update(chunk);
@@ -69,31 +68,16 @@ spigot
   .pipe(statStream)
   .pipe(terminus.devnull({ objectMode: true }));
 
-/*
-  { n: 100000,
-    min: 2.0884908735752106e-7,
-    max: 0.9999937505926937,
-    sum: 49861.06196602131,
-    mean: 0.49861061966021336,
-    variance: 0.08331362954827709,
-    stddev: 0.28864100462040576 }
-  { n: 200000,
-    min: 2.0884908735752106e-7,
-    max: 0.9999937505926937,
-    sum: 99904.73041411326,
-    mean: 0.49952365207056687,
-    variance: 0.08316120223669865,
-    stddev: 0.2883768406732736 }
-*/
+// Prints a stats object each time the stream reaches another 100,000 values.
 ```
 
 # API
 
 ## `const Stats = require("stats-accumulator")`
 
-## `var stats = new Stats(smaBins)`
+## `var stats = new Stats()`
 
-Create a new incremental stats aggregator. The `smaBins` argument is optional (default 50) and will choose the size of recent window to retain to calculate the Simple Moving Average on the recent data.
+Create a new incremental stats aggregator.
 
 ## `stats.update(value)`
 
@@ -135,11 +119,11 @@ The sum of all values observed.
 
 The arithmetic mean of the observations.
 
-## `stats.variance`
+## `stats.variance()`
 
 The variance from the mean.
 
-## `stats.stddev`
+## `stats.stddev()`
 
 The standard deviation of the values from the mean.
 
